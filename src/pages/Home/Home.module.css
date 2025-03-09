@@ -1,0 +1,23 @@
+.cont{
+    background-color: rgb(92, 6, 6);
+    background-size:auto;
+    
+
+}
+.cont_page{
+    /* padding-top: 19px;
+padding-left: 23px; */
+}
+a{
+    text-decoration: none;
+}
+.logo{
+    font-family: Irish Grover;
+font-size: 24px;
+font-weight: 400;
+line-height: 29px;
+color: rgb(224, 224, 224);
+}
+.header{
+
+}
