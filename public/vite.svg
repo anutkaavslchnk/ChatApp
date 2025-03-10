@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0">
+<symbol id="icon-msg"  viewBox="0 0 88 88" fill="none">
+
+	<defs>
+		<clipPath>
+			<rect id="Chat_Conversation 1" rx="0.000000"  transform="translate(0.500000 0.500000)" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<rect id="Chat_Conversation 1" rx="0.000000" transform="translate(0.500000 0.500000)" fill="#FFFFFF" fill-opacity="0"/>
+	<g clip-path="url(#clip21_28)">
+		<path id="Vector" d="M58.66 29.33L73.33 29.33C75.35 29.33 77 30.97 77 33L77 73.33L64.77 63.18C64.12 62.63 63.28 62.33 62.43 62.33L33 62.33C30.97 62.33 29.33 60.69 29.33 58.66L29.33 47.66M58.66 18.33C58.66 16.3 57.02 14.66 55 14.66L14.66 14.66C12.64 14.66 11 16.3 11 18.33L11 58.66L23.22 48.51C23.87 47.96 24.71 47.66 25.56 47.66L29.33 47.66L55 47.66C57.02 47.66 58.66 46.02 58.66 44L58.66 29.33L58.66 18.33Z" stroke="#FFFFFF" stroke-opacity="1.000000" stroke-width="2.000000" stroke-linejoin="round"/>
+	</g>
+</symbol>
+
+<symbol id="icon-phone"  viewBox="0 0 92 87.0714" fill="none">
+
+	<defs>
+		<clipPath>
+			<rect id="Phone 1" rx="0.000000"  transform="translate(0.500000 0.500000)" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<rect id="Phone 1" rx="0.000000"  transform="translate(0.500000 0.500000)" fill="#FFFFFF" fill-opacity="0"/>
+	<g clip-path="url(#clip21_32)">
+		<path id="Vector" d="M29.3 10.88L18.76 10.88C14.75 10.88 11.5 13.96 11.5 17.75C11.5 50.02 39.14 76.18 73.23 76.18C77.24 76.18 80.5 73.1 80.5 69.31L80.5 59.33C80.5 56.36 78.59 53.69 75.68 52.59L65.57 48.77C62.96 47.78 59.98 48.22 57.82 49.93L55.21 51.99C52.16 54.39 47.68 54.2 44.88 51.54L37.53 44.59C34.73 41.93 34.52 37.69 37.06 34.81L39.23 32.34C41.04 30.3 41.51 27.48 40.47 25L36.42 15.44C35.26 12.69 32.44 10.88 29.3 10.88Z" stroke="#FFFFFF" stroke-opacity="1.000000" stroke-width="2.000000" stroke-linejoin="round"/>
+	</g>
+</symbol>
+
+<symbol id="icon-tg" viewBox="0 0 83 75.1698" fill="none">
+
+	<defs>
+		<clipPath>
+			<rect id="Paper_Plane 1" rx="0.000000"  transform="translate(0.500000 0.500000)" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<rect id="Paper_Plane 1" rx="0.000000"  transform="translate(0.500000 0.500000)" fill="#FFFFFF" fill-opacity="0"/>
+	<g clip-path="url(#clip21_24)">
+		<path id="Vector" d="M35.64 42.88L52.4 27.7M55.4 60.08C54.13 63.81 53.5 65.68 52.4 66.3C51.46 66.83 50.28 66.92 49.25 66.53C48.06 66.09 47.09 64.34 45.16 60.85L36.2 44.61C35.9 44.06 35.74 43.78 35.54 43.54C35.36 43.33 35.15 43.14 34.91 42.97C34.65 42.79 34.35 42.66 33.77 42.39L15.81 34.26C11.95 32.51 10.02 31.64 9.53 30.56C9.1 29.62 9.2 28.56 9.79 27.7C10.47 26.71 12.53 26.14 16.65 24.99L62.63 12.17C65.87 11.27 67.49 10.82 68.59 11.18C69.54 11.5 70.29 12.18 70.64 13.04C71.04 14.04 70.54 15.5 69.55 18.43L69.55 18.44L55.4 60.08Z" stroke="#FFFFFF" stroke-opacity="1.000000" stroke-width="2.000000" stroke-linejoin="round" stroke-linecap="round"/>
+	</g>
+</symbol>
+
+<symbol id="icon-clouds"  viewBox="0 0 121.254 93.9221" fill="none">
+
+	<defs>
+		<clipPath>
+			<rect id="Chat_Conversation_Circle 1" rx="0.000000"  transform="translate(0.500000 0.500000)" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<rect id="Chat_Conversation_Circle 1" rx="0.000000"  transform="translate(0.500000 0.500000)" fill="#FFFFFF" fill-opacity="0"/>
+	<g clip-path="url(#clip21_36)">
+		<path id="Vector" d="M68.2 36.98C68.2 20.46 54.35 7.07 37.26 7.07C20.17 7.07 6.31 20.46 6.31 36.98C6.31 42.87 8.07 48.36 11.11 52.99L8.92 59.33L8.92 59.34C8.08 61.77 7.66 62.98 7.96 63.79C8.22 64.5 8.79 65.05 9.52 65.3C10.36 65.59 11.61 65.19 14.1 64.38L14.14 64.37L20.7 62.26C25.49 65.2 31.17 66.9 37.26 66.9C37.84 66.9 38.42 66.88 39 66.85C55.28 65.98 68.2 52.94 68.2 36.98ZM39 66.85C43.23 78.49 54.71 86.84 68.2 86.84C74.29 86.84 79.97 85.14 84.76 82.2L91.32 84.32L91.33 84.32C93.84 85.13 95.1 85.53 95.94 85.25C96.67 84.99 97.24 84.44 97.5 83.73C97.8 82.92 97.38 81.71 96.54 79.27L94.35 72.93L95.09 71.76C97.67 67.39 99.15 62.32 99.15 56.93C99.15 40.41 85.29 27.01 68.2 27.01L67.04 27.03L66.46 27.06" stroke="#FFFFFF" stroke-opacity="1.000000" stroke-width="2.000000" stroke-linejoin="round" stroke-linecap="round"/>
+	</g>
+</symbol>
+
+
+</svg>
