@@ -1,19 +1,16 @@
 .cont{
     background-color: rgb(92, 6, 6);
-    background-repeat: no-repeat;
-    background-size: cover;
+    min-height: 100vh;;
 
     
 
 }
-.cont_page{
-    max-width: 420px;
-    padding-top: 19px;
-padding-left: 23px;
-padding-right: 23px;
-margin: 0 auto;
+/* HEADER  */
+.header{
+    padding: 19px 23px 70px 23px;
 
 }
+
 a{
     text-decoration: none;
 }
@@ -24,16 +21,23 @@ font-weight: 400;
 line-height: 29px;
 color: rgb(224, 224, 224);
 }
-.header{
-    padding-top: 19px;
+
+/* MAIN PAGE  */
+
+.cont_page{
+
+    max-width: 420px;
     padding-left: 23px;
-padding-bottom: 70px;
-}
+    padding-right: 23px;
+    margin: 0 auto;
+    
+    }
 
 .icons_f{
+ margin-bottom: 45px;
    display:flex;
    flex-direction: row;
-gap:95px;
+justify-content: space-between;
 align-items: center;
 text-align: center;
 }
@@ -42,7 +46,7 @@ text-align: center;
     margin-top: 45px;
     display:flex;
     flex-direction: row;
-    gap:95px;
+ justify-content: space-between;
  align-items: center;
  text-align: center;
 }
@@ -97,6 +101,11 @@ text-align: center;
     display: none;
 }
 
+
+
+
+/* MEDIA */
+
 @media screen and (min-width:768px){
 .logo{
 
@@ -105,8 +114,8 @@ font-weight: 400;
 }
 
 .header{
-    padding-top: 29px;
-    padding-left: 33px;
+    padding: 29px 33px 0 33px;
+  
 }
 .icons_f{
     display: none;
@@ -131,13 +140,14 @@ width: 454px;
 text-align: left;
 }
 .cont_txt{
-    margin-top: 180px;
+
 display: block;
 }
 .cont_page{
+
     margin:0;
-    padding-left:50px;
-    padding-bottom: 100px;
+max-width:688px;
+    padding: 180px 50px 100px 40px;
 
 }
 .btn_get_started{
@@ -152,13 +162,15 @@ display: block;
     display:flex;
 
 }
+
+
+
   }
   @media screen and (min-width:1158px){
 
 
 .header{
-    padding-top: 30px;
-    padding-left: 71px;
+    padding:30px 71px 0px 71px;
 }
 .icons_f{
     display: none;
@@ -176,19 +188,21 @@ margin-bottom: 23px;
     font-size: 36px;
     font-weight: 400;
     width: 454px;
-    margin-bottom: 65px;
+    
 }
 .cont_txt{
-    margin-top: 118px;
+
 display: block;
 }
 .cont_page{
+    max-width:1268px;
     margin:0;
-    padding-left:71px;
-    padding-bottom: 122px;
+    padding:198px 71px 122px 71px;
+
     
 }
 .btn_get_started{
+    margin-bottom: 65px;
     padding: 25px 40px;
     font-size: 32px;
 font-weight: 400;
