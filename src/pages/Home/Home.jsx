@@ -1,7 +1,15 @@
+import { useNavigate } from 'react-router-dom';
 import s from './Home.module.css';
 
 import icons from '/public/vite.svg'
+import { useState } from 'react';
 const Home = () => {
+  const [nav, setNav]=useState(false);
+  const navigate=useNavigate();
+  const handleClick=()=>{
+    setNav('true');
+    navigate('/login');
+  }
   return (
   <div className={s.cont}>
 
@@ -13,6 +21,7 @@ const Home = () => {
   <div className={s.cont_page}>
 
 <section className={s.section_home}>
+
 <div className={s.icons_f}>
   
   <div>
@@ -26,30 +35,16 @@ const Home = () => {
 
 
 </div>
+
 <div className={s.cont_icons_txt}>
 <div className={s.cont_txt}>
 <p className={s.hero_title}>Connect instantly. Chat freely. Stay close
 </p>
 <p className={s.hero_txt}>no matter the distance!</p>
-<button className={s.btn_get_started}>Get started</button>
+<button className={s.btn_get_started} onClick={handleClick}>Get started</button>
 </div>
 <div className={s.cont_icons_adaptive}>
-{/* <svg>
-<use href={`${icons}#icon-tg`} width="80" height="70"></use>
-</svg>
 
-<svg>
-<use href={`${icons}#icon-msg`} width="80" height="70"></use>
-</svg>
-
-
-<svg>
-<use href={`${icons}#icon-phone`} width="80" height="77"></use>
-</svg>
-
-<svg>
-<use href={`${icons}#icon-clouds`} width="80" height="70"></use>
-</svg> */}
 </div>
 </div>
 
