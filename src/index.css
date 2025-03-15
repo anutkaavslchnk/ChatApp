@@ -1,11 +1,14 @@
 :root{
-  --font-family: Irish Grover;
+
+  --font-family: Poppins;
   --txt-color:rgba(245, 225, 200, 0.89);
   --hero-txt-color:rgba(212, 116, 116, 0.89);
-  
+  --bcg-color:rgb(92, 6, 6);
+  --txt-log-reg-color:rgb(255, 255, 255);
 }
 
 body{
+  font-family: var(--font-family);
     margin: 0;
 padding: 0;
 
