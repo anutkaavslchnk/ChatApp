@@ -1,0 +1,325 @@
+.container{
+    background-color: var(--bcg-color);
+    width:100%;
+    min-height: 100vh;
+}
+.left_cont{
+    position: relative;
+}
+
+
+
+.title_left{
+   padding-top: 20px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 48px;
+color:var(--txt-log-reg-color);
+}
+.form_cont{
+  
+  
+        }
+    
+        .form_div{
+            border-radius: 20px;
+            padding: 37px 18px;
+        background-color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    
+    
+    
+        }
+
+
+        .form{
+            margin-top: 25px;
+            display:flex;
+            flex-direction: column;
+            gap: 11px;
+            justify-content: center;
+        }
+
+
+        .item_form{
+            border: none;
+            border-radius: 20px;
+    background: rgb(242, 242, 242);
+   width: 258px;
+    padding-top:18px;
+    padding-bottom:18px;
+    padding-left:16px;
+    font-family: var(  --font-family);
+    font-size: 15px;
+    font-weight: 275;
+    line-height: 23px;
+    
+        }
+
+        .title_right{
+            text-align: center;
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 48px;
+        }
+
+
+
+
+
+
+        .btn_login{
+            
+            margin-top: 19px;
+            border-radius: 50px;
+            background-color: var(--bcg-color);
+            padding: 9px 97px;
+            
+            font-size: 14px;
+            font-weight: 600;
+    color:var(--txt-log-reg-color);
+    font-family: var(  --font-family);
+    border: none;
+    
+        }
+        .google_auth{
+            margin-top: 9px;
+            border:none;
+            display: flex;
+            align-items: center;
+            gap:5px;
+            border-radius: 50px;
+            padding: 3px 46px;
+            color: rgb(143, 134, 134);
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+        }
+        .svg{
+    
+            padding-top:9px;
+        }
+     
+        .txt_trans a{
+            color:var(--bcg-color);
+        }
+        .txt_trans{
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 20px;
+    color:#716B6B;
+    text-align: center;
+    margin-top: 9px;
+        }
+
+
+
+
+
+
+
+@media screen and (min-width:768px){
+
+    .form_div{
+        border-radius: 20px;
+        padding: 42px 55px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+
+    }
+
+
+    .form{
+        margin-top: 25px;
+        display:flex;
+        flex-direction: column;
+        gap: 11px;
+        justify-content: center;
+    }
+
+
+    .item_form{
+        width: 370px;
+        border: none;
+        border-radius: 20px;
+background: rgb(242, 242, 242);
+
+padding-top:35px;
+padding-bottom:35px;
+padding-left:29px;
+font-family: var(  --font-family);
+font-size: 24px;
+font-weight: 275;
+line-height: 36px
+
+    }
+
+    .btn_login{
+        margin-top: 46px;
+        border-radius: 50px;
+        background-color: var(--bcg-color);
+        padding: 17px 142px;
+        font-size: 24px;
+font-weight: 600;
+line-height: 36px;
+color:var(--txt-log-reg-color);
+font-family: var(  --font-family);
+border: none;
+
+    }
+    .google_auth{
+        margin-top: 37px;
+        border:none;
+        display: flex;
+        align-items: center;
+        gap:12px;
+        border-radius: 50px;
+        padding: 13px 65px;
+        color: rgb(143, 134, 134);
+font-family: Poppins;
+font-size: 24px;
+font-weight: 300;
+line-height: 36px;
+    }
+    .txt_trans{
+        font-size: 24px;
+        font-weight: 300;
+        line-height: 36px;
+color:#716B6B;
+text-align: center;
+margin-top: 27px;
+    }
+}
+
+
+@media screen and (min-width:1158px){
+    .container{
+        background-color: transparent;
+        display: grid;
+        grid-template-columns:60% 40% ;
+    
+    }
+    
+    .left_cont{
+        position: relative;
+ 
+    min-height: 100vh;;
+        background-color: var(--bcg-color);
+    
+    }
+    
+    .title_left{
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 64px;
+    font-weight: 300;
+    line-height: 96px;
+    color:var(--txt-log-reg-color);
+    }
+    .form_cont{
+  
+position: relative;
+    }
+
+    .form_div{
+        background-color: transparent;
+        border-radius: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+
+    }
+    .form{
+        display:flex;
+        flex-direction: column;
+        gap: 17px;
+    }
+
+    .item_form{
+        border: none;
+        border-radius: 20px;
+background: rgb(242, 242, 242);
+width: 420px;
+padding-top:28px;
+padding-bottom:28px;
+padding-left:28px;
+font-family: var(  --font-family);
+font-size: 24px;
+font-weight: 275;
+line-height: 36px;
+
+    }
+
+    .item_form::placeholder{
+        font-family: var(  --font-family);
+        font-size: 24px;
+        font-weight: 275;
+        line-height: 36px;
+        
+    }
+    .title_right{
+        text-align: center;
+        font-size: 40px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 72px;
+    }
+    .btn_login{
+        margin-top: 46px;
+        border-radius: 50px;
+        background-color: var(--bcg-color);
+        padding: 14px 159px;
+        font-size: 24px;
+font-weight: 600;
+line-height: 36px;
+color:var(--txt-log-reg-color);
+font-family: var(  --font-family);
+border: none;
+
+    }
+    .google_auth{
+        margin-top: 27px;
+        border:none;
+        display: flex;
+        align-items: center;
+        gap:12px;
+        border-radius: 50px;
+        padding: 16px 90px;
+        color: rgb(143, 134, 134);
+font-family: Poppins;
+font-size: 24px;
+font-weight: 300;
+line-height: 36px
+    }
+    .svg{
+        padding-top:9px;
+    }
+    .txt_trans a{
+        color:var(--bcg-color);
+    }
+    .txt_trans{
+        font-size: 24px;
+font-weight: 300;
+line-height: 36px;
+color:#716B6B;
+text-align: center;
+margin-top: 27px;
+    }
+}
