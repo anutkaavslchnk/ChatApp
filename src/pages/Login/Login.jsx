@@ -1,13 +1,28 @@
 import { Field, Formik, Form } from 'formik';
 import s from './Login.module.css';
 import svg from '/public/vite.svg';
-import { NavLink } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginThunk } from '../../redux/auth/operations.js';
+import { isLoggedIn } from '../../redux/auth/selectors.js';
 
 const Login = () => {
+  const selectIsLoggedIn=useSelector(isLoggedIn);
 
+const dispatch=useDispatch();
   const initialValues={
     email:"",
     password:""
+  }
+  const handleSubmit=(values, options)=>{
+    dispatch(loginThunk(values))
+console.log(values);
+options.resetForm();
+
+  }
+
+  if(selectIsLoggedIn){
+    return <Navigate to='/home'></Navigate>
   }
   return <div className={s.container}>
     <div className={s.left_cont}>
@@ -17,7 +32,7 @@ const Login = () => {
     <div className={s.form_cont}>
       <div className={s.form_div}>
         <h2 className={s.title_right}>Sign in</h2>
-<Formik initialValues={initialValues}>
+<Formik initialValues={initialValues} onSubmit={handleSubmit}>
   <Form className={s.form}>
     <Field className={s.item_form} name="email" type="email" placeholder="Email"></Field>
     <Field className={s.item_form} name="password" type="password" placeholder="Password"></Field>

@@ -1,0 +1,2 @@
+export const isLoggedIn=(state)=>state.auth.isLoggedIn;
+export const token=(state)=>state.auth.accessToken;

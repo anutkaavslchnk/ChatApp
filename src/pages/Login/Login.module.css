@@ -10,7 +10,7 @@
 
 
 .title_left{
-   padding-top: 20px;
+   padding-top: 50px;
     text-align: center;
     font-size: 32px;
     font-weight: 400;
@@ -125,6 +125,10 @@ color:var(--txt-log-reg-color);
 
 @media screen and (min-width:768px){
 
+
+    .title_left{
+        display:none;
+    }
     .form_div{
         border-radius: 20px;
         padding: 42px 55px;
@@ -206,7 +210,7 @@ margin-top: 27px;
     .container{
         background-color: transparent;
         display: grid;
-        grid-template-columns:60% 40% ;
+        grid-template-columns:50% 50% ;
     
     }
     
@@ -219,7 +223,8 @@ margin-top: 27px;
     }
     
     .title_left{
-
+        width:550px;
+display: block;
         position: absolute;
         top: 50%;
         left: 50%;

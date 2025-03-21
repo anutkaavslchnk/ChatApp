@@ -1,12 +1,20 @@
+import { useDispatch } from 'react-redux';
 import s from './Register.module.css';
 import svg from '/public/vite.svg';
 import { Field, Formik, Form } from 'formik';
 import { NavLink } from 'react-router-dom';
+import { registerThunk } from '../../redux/auth/operations';
 const Register = () => {
+  const dispatch=useDispatch();
   const initialValues={
-    fullname:"",
+    fullName:"",
     email:"",
     password:""
+  }
+  const handleSubmit=(values,options)=>{
+dispatch(registerThunk(values))
+options.resetForm();
+
   }
   return <div className={s.container}>
     <div className={s.left_cont}>
@@ -16,9 +24,9 @@ const Register = () => {
     <div className={s.form_cont}>
       <div className={s.form_div}>
         <h2 className={s.title_right}>Sign up</h2>
-<Formik initialValues={initialValues}>
+<Formik initialValues={initialValues} onSubmit={handleSubmit}>
   <Form className={s.form}>
-  <Field className={s.item_form} name="name" type="text" placeholder="Full name"></Field>
+  <Field className={s.item_form} name="fullName" type="text" placeholder="Full name"></Field>
     <Field className={s.item_form} name="email" type="email" placeholder="Email"></Field>
     <Field className={s.item_form} name="password" type="password" placeholder="Password"></Field>
     <button className={s.btn_login}type="submit">Sign up</button>
