@@ -4,6 +4,7 @@ import Login from "./pages/Login/Login.jsx";
 import Register from "./pages/Register/Register.jsx";
 import NotFound from "./components/NotFound/NotFound.jsx";
 import User from "./pages/User/User.jsx";
+import { Toaster } from "react-hot-toast";
 
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
 
 
     </Routes>
+    <Toaster></Toaster>
     </div>;
 };
 

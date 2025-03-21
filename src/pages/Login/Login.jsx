@@ -1,14 +1,21 @@
-import { Field, Formik, Form } from 'formik';
+import { Field, Formik, Form, ErrorMessage } from 'formik';
 import s from './Login.module.css';
 import svg from '/public/vite.svg';
-import { Navigate, NavLink } from 'react-router-dom';
+import {  NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginThunk } from '../../redux/auth/operations.js';
 import { isLoggedIn } from '../../redux/auth/selectors.js';
+import * as Yup from "yup";
+import { useEffect } from 'react';
 
 const Login = () => {
   const selectIsLoggedIn=useSelector(isLoggedIn);
+  const FeeedbackSchema=Yup.object().shape({
+    email:Yup.string().email("Must be a valid email!").required("This is required!"),
+    password:Yup.string().required("This is required!")
 
+  });
+  const navigate = useNavigate();
 const dispatch=useDispatch();
   const initialValues={
     email:"",
@@ -16,14 +23,17 @@ const dispatch=useDispatch();
   }
   const handleSubmit=(values, options)=>{
     dispatch(loginThunk(values))
-console.log(values);
 options.resetForm();
 
   }
 
-  if(selectIsLoggedIn){
-    return <Navigate to='/home'></Navigate>
-  }
+ 
+  useEffect(() => {
+    if (selectIsLoggedIn) {
+      navigate('/home', { replace: true });
+    }
+  }, [selectIsLoggedIn, navigate]);
+  
   return <div className={s.container}>
     <div className={s.left_cont}>
       <h1 className={s.title_left}>Welcome back!!!</h1>
@@ -32,10 +42,12 @@ options.resetForm();
     <div className={s.form_cont}>
       <div className={s.form_div}>
         <h2 className={s.title_right}>Sign in</h2>
-<Formik initialValues={initialValues} onSubmit={handleSubmit}>
+<Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={FeeedbackSchema}>
   <Form className={s.form}>
     <Field className={s.item_form} name="email" type="email" placeholder="Email"></Field>
+    <ErrorMessage  name="email" component="span" />
     <Field className={s.item_form} name="password" type="password" placeholder="Password"></Field>
+    <ErrorMessage  name="password" component="span" />
     <button className={s.btn_login}type="submit">Sign in</button>
   </Form>
 </Formik>
