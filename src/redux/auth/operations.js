@@ -37,3 +37,18 @@ try {
     return thunkAPI.rejectWithValue(error.message);
 }
 })
+
+export const getMe=createAsyncThunk('getMe', async(_,thunkAPI)=>{
+    const savedToken=thunkAPI.getState().auth.accessToken;
+    console.log("Saved Token on Reload:", savedToken);
+    if(savedToken===null){
+        return thunkAPI.rejectWithValue('Token is not exist!');
+    }
+    try {
+        setToken(savedToken)
+        const {data}=await api.get('api/auth/check');
+        return data;
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
+    }
+})

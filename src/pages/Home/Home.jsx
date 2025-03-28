@@ -2,14 +2,27 @@ import { useNavigate } from 'react-router-dom';
 import s from './Home.module.css';
 
 import icons from '/public/vite.svg'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import {  useSelector } from 'react-redux';
+import { isLoggedIn } from '../../redux/auth/selectors';
 const Home = () => {
+  
   const [nav, setNav]=useState(false);
   const navigate=useNavigate();
   const handleClick=()=>{
     setNav('true');
     navigate('/login');
   }
+
+  const selectIsLoggedIn=useSelector(isLoggedIn);
+
+
+  useEffect(() => {
+    if (selectIsLoggedIn) {
+      navigate('/home', { replace: true });
+    }
+  }, [selectIsLoggedIn, navigate]);
+  
   return (
   <div className={s.cont}>
 
