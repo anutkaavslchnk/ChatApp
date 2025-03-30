@@ -52,3 +52,13 @@ export const getMe=createAsyncThunk('getMe', async(_,thunkAPI)=>{
         return thunkAPI.rejectWithValue(error.message);
     }
 })
+
+export const updateProfileThunk=createAsyncThunk('updateProfile', async(credentials, thunkAPI)=>{
+    try {
+        const {data}=await api.put('api/auth/update-profile', credentials);
+        console.log("Server Response:", data);
+        return data;
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
+    }
+})

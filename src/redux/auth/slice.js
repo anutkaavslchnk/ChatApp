@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { getMe, loginThunk, logOutThunk, registerThunk } from "./operations";
+import { getMe, loginThunk, logOutThunk, registerThunk, updateProfileThunk } from "./operations";
 
 const initialState={
     user:{
         fullName:"",
         email:"",
+        profileAvatar:""
     },
     accessToken: "",
     isLoggedIn:false,
@@ -34,7 +35,15 @@ state.isLoggedIn=true;
                         state.isLoggedIn = true;
                     })
         
-        
+                    .addCase(updateProfileThunk.fulfilled, (state, action) => {
+                        console.log("Redux Update Payload:", action.payload);
+                        if (action.payload?.user?.profileAvatar) {
+                            state.user.profileAvatar = action.payload.user.profileAvatar;
+                        }
+                        console.log("Redux After Update:", state.user.profileAvatar);
+                        state.isLoggedIn = true;
+                    
+                    })
                
                     .addCase(logOutThunk.fulfilled, (state,action)=>{
                         return initialState;

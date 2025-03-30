@@ -1,0 +1,58 @@
+.wrapper{
+    position: fixed;
+	inset: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	overflow:scroll;
+}
+.content{
+position:relative;
+background-color: white;
+padding: 100px;
+overflow:scroll;
+max-width: 500px;
+border-radius: 5px;
+}
+
+.close{
+    position: absolute;
+	top: 5px;
+	right: 5px;
+	background-color: transparent;
+	border: none;
+	font-size: 20px;
+	cursor: pointer;
+}
+.img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    margin:0 auto;
+}
+
+.input_photo{
+
+}
+
+.field_photo{
+	border:1px solid black;
+	border-radius:50%;
+	width:100px;
+    height:100px;
+	margin:0 auto;
+	margin-bottom: 10px;
+	position:relative;
+}
+.user{
+	border-radius: 50%;
+	width:100px;
+    height:100px;
+}
+.cont_update{
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	gap:10px;
+}

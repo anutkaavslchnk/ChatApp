@@ -1,12 +1,14 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import s from './Register.module.css';
 import svg from '/public/vite.svg';
 import { Field, Formik, Form } from 'formik';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { registerThunk } from '../../redux/auth/operations';
 import { ErrorMessage } from "formik";
 import * as Yup from "yup";
-import toast from 'react-hot-toast';
+
+import { useEffect } from 'react';
+import { isLoggedIn } from '../../redux/auth/selectors';
 const Register = () => {
   const FeeedbackSchema=Yup.object().shape({
     fullName:Yup.string().required("This is required!"),
@@ -14,6 +16,13 @@ const Register = () => {
     password:Yup.string().min(6, "Too short! Here should be min 6 characters").required("This is required!")
 
   });
+  const navigate = useNavigate();
+  const selectIsLoggedIn=useSelector(isLoggedIn);
+    useEffect(() => {
+      if (selectIsLoggedIn) {
+        navigate('/home', { replace: true });
+      }
+    }, [selectIsLoggedIn, navigate]);
   const dispatch=useDispatch();
   const initialValues={
     fullName:"",
