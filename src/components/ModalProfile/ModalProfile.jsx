@@ -9,10 +9,10 @@ const ModalProfile = ({ handleClose }) => {
     const name=useSelector(userName);
     const email=useSelector(userEmail);
     const profileAvatar = useSelector(userProfileAvatar);
-const [file, setFile]=useState();
+
+const [file, setFile]=useState(null);
 const dispatch =useDispatch();
 
-console.log("Profile Avatar in Modal:", profileAvatar);
 const handleImageUpdates=e=>{
 const file=e.target.files[0];
 if(!file) return;
@@ -30,6 +30,7 @@ reader.onloadend=async()=>{
 useEffect(() => {
     if (profileAvatar) {
         setFile(profileAvatar);
+        
     }
 }, [profileAvatar]);
     useEffect(() => {

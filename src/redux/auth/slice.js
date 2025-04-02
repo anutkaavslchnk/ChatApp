@@ -5,7 +5,7 @@ const initialState={
     user:{
         fullName:"",
         email:"",
-        profileAvatar:""
+        profileAvatar:null
     },
     accessToken: "",
     isLoggedIn:false,
