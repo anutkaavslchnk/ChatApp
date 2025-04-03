@@ -7,10 +7,12 @@ import { useState } from "react";
 import SideBar from "../../components/Sidebar/SideBar.jsx";
 import MainPartPage from "../../components/MainPartPage/MainPartPage.jsx";
 import s from './User.module.css';
+import { getSelectedUser } from "../../redux/users/selectors.js";
+import Chat from "../../components/Chat/Chat.jsx";
 
 const User = () => {
       const [open,setOpen]=useState(false);
-  
+  const isSelected=useSelector(getSelectedUser);
       const handleOpenModal=()=>{
           setOpen(true);
       }
@@ -30,7 +32,8 @@ return <Navigate to='/'></Navigate>
       {open && <ModalProfile handleClose={() => setOpen(false)} />}
 <div className={s.container}>
         <SideBar></SideBar>
-        <MainPartPage></MainPartPage>
+        {isSelected ? <Chat></Chat>: <MainPartPage></MainPartPage>}
+        
         </div>
       </div>
     )}
