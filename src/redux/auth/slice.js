@@ -30,6 +30,7 @@ state.isLoggedIn=true;
             state.isLoggedIn=true;
                     })
                     .addCase(getMe.fulfilled, (state, action) => {
+                        state.user._id = action.payload._id; 
                         state.user.fullName = action.payload.fullName;
                         state.user.email = action.payload.email;
                         state.isLoggedIn = true;

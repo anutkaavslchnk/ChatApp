@@ -12,6 +12,7 @@ import {
   } from 'redux-persist';
   import storage from 'redux-persist/lib/storage';
 import { usersReducer } from "./users/slice";
+import { messageReducer } from "./messages/slice";
   const persistConfig = {
     key: 'auth',
     version: 1,
@@ -25,6 +26,7 @@ export const store=configureStore({
     reducer:{
         auth: persistReducer(persistConfig, authReducer),
         users: persistReducer(persistConfig, usersReducer),
+        messages: persistReducer(persistConfig, messageReducer),
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
