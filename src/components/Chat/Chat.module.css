@@ -1,0 +1,59 @@
+.img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    margin:0 auto;
+}
+.title{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+.line{
+    height: 0.5px;
+    width: 100%;
+    background-color: black;
+}
+
+.input_txt{
+    padding:10px;
+    width: 800px;
+}
+
+.form{
+    position: fixed;
+    left: 35%; 
+    bottom: 0;
+}
+.msgItem{
+
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 16px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    max-width: 70%;
+
+}
+
+.their{
+    background-color: #dcf8c6;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+    text-align: right;
+  
+}
+.own{
+    background-color: #f1f0f0;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+    text-align: left;
+}
+.msgList{
+     display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 10px;
+ 
+}
