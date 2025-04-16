@@ -1,5 +1,6 @@
 import { io } from "socket.io-client";
 import { setOnlineUsers, setSocket } from "./slice";
+import { addMessage } from "../messages/slice";
 
 
 
@@ -27,7 +28,9 @@ export const connectedSocket=(dispatch, token,userId)=>{
 
         dispatch(setOnlineUsers(userIds));
     });
-
+socket.on('newMessage', (msg)=>{
+    dispatch(addMessage(msg))
+})
 
     socket.on('disconnect', ()=>{
         console.log('Disconnected from socket');
