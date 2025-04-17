@@ -6,6 +6,7 @@ import { useEffect, useState} from "react";
 import { getUsersSelector } from "../../redux/users/selectors.js";
 import { selectedUser } from "../../redux/users/slice.js";
 import { getOnlineUsers } from "../../redux/socket/selectors.js";
+import { getMessages } from "../../redux/messages/operations.js";
 
 const SideBar = () => {
 
@@ -32,7 +33,13 @@ const online =useSelector(getOnlineUsers);
 const isOnline = online.includes(user._id);
 return(
 
-    <li className={s.item} key={user._id} onClick={()=>dispatch(selectedUser(user))}>
+    <li
+    className={s.item}
+    key={user._id}
+    onClick={() => {
+      dispatch(selectedUser(user));
+      dispatch(getMessages()); 
+    }}>
         
         <div className={s.avatarWrapper}>
                 <img
