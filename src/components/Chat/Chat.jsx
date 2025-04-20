@@ -8,6 +8,7 @@ import { getMessagesSelector } from "../../redux/messages/selectors";
 import { useEffect, useRef, useState } from "react";
 import { getCurrentUser } from "../../redux/auth/selectors";
 import { getOnlineUsers, getSocket, isTyping } from "../../redux/socket/selectors";
+import MessageSettings from "../MessageSettings/MessageSettings";
 const Chat = () => {
 const initialValues = {
   txt: '',
@@ -24,8 +25,12 @@ const isOnline =online.includes(user._id);
 const typingTimeoutRef=useRef(null);
 const socket=useSelector(getSocket);
 const typing=type.includes(user._id);
+const [openMsgSettings,setOpenMsgSettings]=useState(null);
 
+const handleOpenMessageSettings=(msg)=>{
 
+  setOpenMsgSettings(msg);
+}
 
 
 useEffect(()=>{
@@ -56,6 +61,11 @@ const handleTyping = () => {
     socket.emit('typing', {to:user._id, from:currentUser._id})
   }
 }
+const messagesEndRef = useRef(null);
+
+useEffect(() => {
+  messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+}, [chatMessagesFilter]);
 
 
 
@@ -68,16 +78,41 @@ const handleTyping = () => {
     <div className={s.line}></div>
 
 
+    <div className={`${s.chatContainer}`}>
     <ul className={s.msgList}>
-
   {chatMessagesFilter.map((msg) => {
-    const isOwnMsg=msg.senderId===user._id;
-       return(
-        <li key={msg._id} className={`${s.msgItem} ${isOwnMsg ? s.own : s.their}`}>{msg.txt}</li>
-      )
-  })}
+    const isOwnMsg = msg.senderId === user._id;
+    const isSelected = openMsgSettings === msg._id;
+    const shouldBlur = openMsgSettings && openMsgSettings !== msg._id;
 
-    </ul>
+    return (
+      <li
+        key={msg._id}
+        className={`${s.wrapper} ${shouldBlur ? s.blurred : ""} ${
+          isSelected ? s.focused : ""
+        }`}
+      >
+        <div
+          onDoubleClick={() => handleOpenMessageSettings(msg._id)}
+          className={`${s.msgItem} ${isOwnMsg ? s.own : s.their}`}
+        >
+          {msg.txt}
+        </div>
+
+        {isSelected && (
+          <div className={s.msgSettingsWrapper}>
+            <MessageSettings onClose={() => setOpenMsgSettings(null)} />
+          </div>
+        )}
+      </li>
+    );
+  })}
+  <div ref={messagesEndRef}></div>
+</ul>
+
+</div>
+
+
     
 <Formik initialValues={initialValues} onSubmit={handleSubmit}>
 

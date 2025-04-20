@@ -13,6 +13,7 @@ const ModalProfile = ({ handleClose }) => {
 const [file, setFile]=useState(null);
 const dispatch =useDispatch();
 
+//uploading avatar logic 
 const handleImageUpdates=e=>{
 const file=e.target.files[0];
 if(!file) return;
@@ -33,6 +34,7 @@ useEffect(() => {
         
     }
 }, [profileAvatar]);
+
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === 'Escape') {
@@ -46,6 +48,8 @@ useEffect(() => {
             document.removeEventListener('keydown', handleKeyDown);
         };
     }, [handleClose]); 
+
+
 
 
     const handleBackdropClick = (e) => {
