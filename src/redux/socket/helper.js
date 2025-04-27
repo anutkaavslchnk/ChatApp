@@ -1,6 +1,7 @@
 import { io } from "socket.io-client";
 import { addTypingUser, removeTypingUser, setOnlineUsers, setSocket } from "./slice";
-import { addMessage } from "../messages/slice";
+import { addMessage, setDeliveredLocal, setReadLocal } from "../messages/slice";
+import { updateDeliveredStatus, updateReadStatus } from "../messages/operations";
 
 
 
@@ -35,6 +36,8 @@ socket.on('newMessage', (msg)=>{
     dispatch(addMessage(msg))
 })
 
+// delivered/read logic
+
 
 //typing logic
 
@@ -46,7 +49,12 @@ socket.on('stopTyping', ({from})=>{
     dispatch(removeTypingUser(from))
 })
 
-
+socket.on('messageDelivered', ({messageId})=>{
+    dispatch(setDeliveredLocal(messageId))
+});
+socket.on('messageRead',({messageId})=>{
+dispatch(setReadLocal(messageId))
+})
     socket.on('disconnect', ()=>{
         console.log('Disconnected from socket');
         

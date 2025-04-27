@@ -3,7 +3,7 @@ import { getSelectedUser } from "../../redux/users/selectors";
 import avatar from '/public/user.png'
 import s from './Chat.module.css';
 import { Field, Form, Formik } from "formik";
-import { getMessages, sendMsg } from "../../redux/messages/operations";
+import { getMessages, sendMsg, updateDeliveredStatus, updateReadStatus } from "../../redux/messages/operations";
 import { getMessagesSelector } from "../../redux/messages/selectors";
 import { useEffect, useRef, useState } from "react";
 import { getCurrentUser } from "../../redux/auth/selectors";
@@ -67,7 +67,30 @@ useEffect(() => {
   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
 }, [chatMessagesFilter]);
 
+useEffect(()=>{
+  chatMessagesFilter.forEach((msg)=>{
+    if(msg.senderId===user._id && !msg.isDelivered){
+      dispatch(updateDeliveredStatus(msg._id));
+      socket.emit("messageDelivered",{
+        messageId:msg._id,
+        senderId:msg.senderId,
+      })
+    }
+  })
+},[chatMessagesFilter,dispatch,user._id,socket])
 
+
+useEffect(()=>{
+  chatMessagesFilter.forEach((msg)=>{
+    if(msg.senderId===user._id && msg.isDelivered && !msg.isRead){
+      dispatch(updateReadStatus(msg._id));
+      socket.emit("messageRead",{
+        messageId:msg._id,
+        senderId:msg.senderId,
+      })
+    }
+  })
+},[chatMessagesFilter,dispatch,user._id,socket])
 
   return <div>
     
@@ -97,6 +120,7 @@ useEffect(() => {
           className={`${s.msgItem} ${isOwnMsg ? s.own : s.their}`}
         >
           {msg.txt}
+         
         </div>
 
         {isSelected && (
@@ -108,6 +132,25 @@ useEffect(() => {
     );
   })}
   <div ref={messagesEndRef}></div>
+  {(() => {
+    const lastOwnMsg = [...chatMessagesFilter].reverse().find(
+      (msg) => msg.senderId === currentUser._id
+    );
+
+    if (!lastOwnMsg) {
+      return null;
+    }
+
+    return (
+      <div className={s.lastStatus}>
+        {lastOwnMsg.isRead
+          ? "Read"
+          : lastOwnMsg.isDelivered
+          ? "Delivered"
+          : "Loading"}
+      </div>
+    );
+  })()}
 </ul>
 
 </div>
