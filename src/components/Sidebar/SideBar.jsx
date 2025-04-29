@@ -3,10 +3,12 @@ import s from "./SideBar.module.css";
 import avatar from "/public/user.png";
 import { useEffect } from "react";
 import { getAllUsers } from "../../redux/users/operations.js";
-import { getSelectedUser, getUsersSelector } from "../../redux/users/selectors.js";
+import {  getUsersSelector } from "../../redux/users/selectors.js";
 import { selectedUser } from "../../redux/users/slice.js";
 import { getOnlineUsers, isTyping } from "../../redux/socket/selectors.js";
 import { getMessages } from "../../redux/messages/operations.js";
+import { getCurrentUser } from "../../redux/auth/selectors.js";
+import { getConversationSummaries } from "../../redux/messages/selectors.js";
 
 const SideBar = () => {
     const dispatch = useDispatch();
@@ -14,7 +16,9 @@ const SideBar = () => {
     const users = useSelector(getUsersSelector);
     const onlineUsers = useSelector(getOnlineUsers);
     const typingUsers = useSelector(isTyping);
-
+    const currentUser = useSelector(getCurrentUser);
+    const conversationSummaries = useSelector(state => getConversationSummaries(state, currentUser._id));
+    // ...
     useEffect(() => {
         dispatch(getAllUsers());
     }, [dispatch]);
@@ -29,7 +33,9 @@ const SideBar = () => {
                 {users.map((user) => {
                     const isOnline = onlineUsers.includes(user._id);
                     const isUserTyping = typingUsers.includes(user._id);
-
+                    const summary = conversationSummaries[user._id] || {};
+                    const lastMsg = summary.lastMessage?.txt || "";
+                    const unreadCount = summary.unreadCount || 0;
                     return (
                         <li
                             className={s.item}
@@ -47,13 +53,21 @@ const SideBar = () => {
                                 />
                                 {isOnline && <span className={s.onlineDot}></span>}
                             </div>
-                            <p>{user.fullName}</p>
 
-                            {isUserTyping && (
-                                <div className={s.typing}>
-                                    <span>Typing...</span>
+                            <div className={s.infoWrapper}>
+                                <div className={s.nameRow}>
+                                    <p className={s.userName}>{user.fullName}</p>
+                                    {unreadCount > 0 && (
+                                        <span className={s.unreadCount}>{unreadCount}</span>
+                                    )}
                                 </div>
-                            )}
+
+                                {isUserTyping ? (
+                                    <p className={s.typing}>Typing...</p>
+                                ) : (
+                                    <p className={s.lastMsg}>{lastMsg}</p>
+                                )}
+                            </div>
                         </li>
                     );
                 })}
@@ -61,5 +75,4 @@ const SideBar = () => {
         </div>
     );
 };
-
 export default SideBar;

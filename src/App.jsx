@@ -19,7 +19,11 @@ const dispatch=useDispatch();
         dispatch(getMe()); // Dispatch getMe only if token exists
     }
 }, [dispatch]);
-
+useEffect(() => {
+  if (Notification.permission !== "granted") {
+      Notification.requestPermission();
+  }
+}, []);
   return <div>
 
     <Routes>

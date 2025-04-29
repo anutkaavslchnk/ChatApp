@@ -1,7 +1,6 @@
 import { io } from "socket.io-client";
 import { addTypingUser, removeTypingUser, setOnlineUsers, setSocket } from "./slice";
 import { addMessage, setDeliveredLocal, setReadLocal } from "../messages/slice";
-import { updateDeliveredStatus, updateReadStatus } from "../messages/operations";
 
 
 
@@ -34,6 +33,20 @@ export const connectedSocket=(dispatch, token,userId)=>{
     //message logic
 socket.on('newMessage', (msg)=>{
     dispatch(addMessage(msg))
+    const notificationSound = new Audio('/public/message-notification-190034 (1).mp3')
+    if (msg.senderId !== userId) {
+        notificationSound.play().catch((err) =>
+          console.error("Audio playback error:", err)
+        );
+      }
+  
+      
+      if (msg.senderId !== userId && Notification.permission === "granted") {
+        new Notification("New message", {
+          body: `${msg.senderName || "User"}: ${msg.txt}`,
+          icon: msg.senderAvatar || "/user.png"
+        });
+      }
 })
 
 // delivered/read logic

@@ -2,7 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { api } from "../../config/api";
 
 import { getSelectedUser } from "../users/selectors";
-import { getMessagesSelector } from "./selectors";
 
 export const sendMsg=createAsyncThunk("sendMsg",async(body, thunkAPI)=>{
     
