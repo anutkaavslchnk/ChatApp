@@ -17,16 +17,22 @@ try {
 })
 
 
-export const getMessages=createAsyncThunk("getMessages", async(_, thunkAPI)=>{
+export const getMessages = createAsyncThunk("getMessages", async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    const user = getSelectedUser(state); 
-    try {
-        const {data}=await api.get(`/api/message/${user._id}`);
-        return data;
-    } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
+    const user = getSelectedUser(state);
+  
+    if (!user || !user._id) {
+      return thunkAPI.rejectWithValue("No selected user");
     }
-})
+  
+    try {
+      const { data } = await api.get(`/api/message/${user._id}`);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  });
+  
 
 
 export const updateDeliveredStatus=createAsyncThunk("updateDeliveredStatus", async(msgId, thunkAPI)=>{

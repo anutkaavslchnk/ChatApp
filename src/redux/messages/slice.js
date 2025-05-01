@@ -16,6 +16,7 @@ const messageSlice=createSlice({
     reducers:{
         addMessage:(state,action)=>{
             state.messages.push(action.payload);
+            
         },
         setDeliveredLocal: (state, action) => {
             const idx = state.messages.findIndex(msg => msg._id === action.payload);

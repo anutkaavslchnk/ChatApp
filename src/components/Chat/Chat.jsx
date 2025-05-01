@@ -32,13 +32,11 @@ const handleOpenMessageSettings=(msg)=>{
   setOpenMsgSettings(msg);
 }
 
-
-useEffect(()=>{
+useEffect(() => {
   if (user && user._id) {
     dispatch(getMessages());
   }
-
-},[user,dispatch])
+}, [user?._id, dispatch,user]);
 
 const handleSubmit=(values,options)=>{
   dispatch(sendMsg(values));
@@ -50,9 +48,11 @@ options.resetForm();
 
 
 
-  const chatMessagesFilter=messages.filter((msg)=>
-  (msg.senderId===currentUser._id && msg.receiverId===user._id)||
-(msg.senderId===user._id && msg.receiverId===currentUser._id))
+const chatMessagesFilter = messages.filter((msg) =>
+  user && currentUser &&
+  ((msg.senderId === currentUser._id && msg.receiverId === user._id) ||
+   (msg.senderId === user._id && msg.receiverId === currentUser._id))
+);
 
 
 
