@@ -29,6 +29,7 @@ state.isLoggedIn=true;
             state.user._id = action.payload.user._id;
             state.user.fullName=action.payload.user.fullName;
             state.user.email=action.payload.user.email;
+            state.user.profileAvatar=action.payload.user.profileAvatar;
             state.isLoggedIn=true;
                     })
                     .addCase(getMe.fulfilled, (state, action) => {

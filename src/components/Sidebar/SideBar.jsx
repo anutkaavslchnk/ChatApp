@@ -21,6 +21,7 @@ const SideBar = () => {
     // ...
     useEffect(() => {
         dispatch(getAllUsers());
+        
     }, [dispatch]);
 
     if (!Array.isArray(users) || users.length === 0) {
