@@ -1,3 +1,16 @@
 .cont{
-background-color: beige;
+    background: rgb(255, 255, 255);
+}
+
+.txt{
+
+font-size: 40px;
+font-weight: 500;
+line-height: 60px;
+text-align: left;
+position: absolute;
+top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 846px;
 }

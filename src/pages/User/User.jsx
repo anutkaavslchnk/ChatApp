@@ -25,17 +25,20 @@ return <Navigate to='/'></Navigate>
     <>
  
     {isLoggedInSel && (
-      <div>
       
-      <button onClick={handleOpenModal}>Profile</button>
-      <button onClick={()=>dispatch(logOutThunk())}>Log out</button>
+      <div>
+         <button onClick={handleOpenModal}>Profile</button>
+         <button onClick={()=>dispatch(logOutThunk())}>Log out</button>
+      
       {open && <ModalProfile handleClose={() => setOpen(false)} />}
 <div className={s.container}>
         <SideBar></SideBar>
         {isSelected ? <Chat></Chat>: <MainPartPage></MainPartPage>}
-        
+       
         </div>
+     
       </div>
+      
     )}
     </>
   )

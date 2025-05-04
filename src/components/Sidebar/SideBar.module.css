@@ -1,8 +1,17 @@
 .cont{
    border:1px solid black;
    height: 100vh;
+   background-color:  rgb(92, 6, 6);
     }
-
+.chats_title{
+  color: rgb(255, 255, 255);
+margin-top: 40px;
+margin-bottom: 40px;
+font-size: 32px;
+font-weight: 400;
+line-height: 48px;
+margin-left: 31px;
+}
     .list{
         list-style-type: none;
         display: flex;
@@ -14,9 +23,9 @@
         display: flex;
         align-items: center;
         gap: 5px;
-        border-bottom: 1px solid black;
-        padding: 10px;;
-        background-color: white;
+        border-bottom: 1px solid rgb(224, 205, 205);;
+        padding: 10px;
+        
         cursor: pointer;
     }
 
@@ -63,14 +72,19 @@
       }
       
       .userName {
-        font-weight: bold;
-        font-size: 14px;
+        color: rgb(255, 255, 255);
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
       }
       
       .lastMsg {
+        color: rgb(224, 205, 205);
+        
         font-size: 12px;
-        color: gray;
-        margin-top: 2px;
+        font-weight: 300;
+        line-height: 18px;
       }
       
       .unreadCount {

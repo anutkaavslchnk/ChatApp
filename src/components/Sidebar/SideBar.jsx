@@ -30,6 +30,7 @@ const SideBar = () => {
 
     return (
         <div className={s.cont}>
+            <p className={s.chats_title}>Chats</p>
             <ul className={s.list}>
                 {users.map((user) => {
                     const isOnline = onlineUsers.includes(user._id);
