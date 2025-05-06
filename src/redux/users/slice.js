@@ -11,7 +11,10 @@ const slice=createSlice({
     reducers:{
 selectedUser:(state,action)=>{
     state.selectedUser=action.payload;
-}
+},
+clearSelectedUser: (state) => {
+    state.selectedUser = null;
+  },
     },
     extraReducers:builder=>{
         builder
@@ -20,5 +23,5 @@ selectedUser:(state,action)=>{
         })
     }
 })
-export const {selectedUser}=slice.actions;
+export const {selectedUser,clearSelectedUser}=slice.actions;
 export const usersReducer=slice.reducer;

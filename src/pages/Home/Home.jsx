@@ -56,6 +56,7 @@ const Home = () => {
 <p className={s.hero_txt}>no matter the distance!</p>
 <button className={s.btn_get_started} onClick={handleClick}>Get started</button>
 </div>
+
 <div className={s.cont_icons_adaptive}>
 
 </div>

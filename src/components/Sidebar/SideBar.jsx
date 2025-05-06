@@ -1,16 +1,23 @@
 import { useDispatch, useSelector } from "react-redux";
 import s from "./SideBar.module.css";
 import avatar from "/public/user.png";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getAllUsers } from "../../redux/users/operations.js";
-import {  getUsersSelector } from "../../redux/users/selectors.js";
+import {  getSelectedUser, getUsersSelector } from "../../redux/users/selectors.js";
 import { selectedUser } from "../../redux/users/slice.js";
 import { getOnlineUsers, isTyping } from "../../redux/socket/selectors.js";
 import { getMessages } from "../../redux/messages/operations.js";
 import { getCurrentUser } from "../../redux/auth/selectors.js";
 import { getConversationSummaries } from "../../redux/messages/selectors.js";
-
+import { logOutThunk } from "../../redux/auth/operations.js";
+import ModalProfile from "../ModalProfile/ModalProfile.jsx";
+import icons from '/public/vite.svg';
 const SideBar = () => {
+          const [open,setOpen]=useState(false);
+  
+          const handleOpenModal=()=>{
+              setOpen(true);
+          }
     const dispatch = useDispatch();
 
     const users = useSelector(getUsersSelector);
@@ -74,6 +81,26 @@ const SideBar = () => {
                     );
                 })}
             </ul>
+            <div className={s.settings_container}>
+            <button className={s.btn_profile} onClick={handleOpenModal}>
+                    <div className={s.circle_profile}></div>
+                    <p className={s.btn_txt}>Profile</p></button>
+                 <button className={s.btn_profile} onClick={()=>dispatch(logOutThunk())}>
+                 <svg width="30" height="30">
+                        <use href={`${icons}#logout`} ></use>
+                    </svg>
+                    <p className={s.btn_txt}>Log out</p>
+                    </button>
+                    <button className={s.btn_profile} >
+                 <svg width="30px" height="30px">
+                        <use href={`${icons}#settings`} ></use>
+                    </svg>
+                    <p className={s.btn_txt}>Settings</p>
+                    </button>
+              
+              {open && <ModalProfile handleClose={() => setOpen(false)} />}
+            </div>
+
         </div>
     );
 };

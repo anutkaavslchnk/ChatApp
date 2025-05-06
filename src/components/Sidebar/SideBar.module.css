@@ -1,8 +1,12 @@
-.cont{
-   border:1px solid black;
-   height: 100vh;
-   background-color:  rgb(92, 6, 6);
-    }
+.cont {
+  border: 1px solid black;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: rgb(92, 6, 6);
+  display: flex;
+  flex-direction: column; 
+}
+
 .chats_title{
   color: rgb(255, 255, 255);
 margin-top: 40px;
@@ -42,18 +46,23 @@ margin-left: 31px;
         right: 0;
         width: 10px;
         height: 10px;
-        background-color: #00e676;
+        background-color: rgb(136, 242, 161);
         border-radius: 50%;
-        border: 2px solid white;
+        border: 1px solid rgb(92, 6, 6);
       }
 
       .avatarWrapper {
         position: relative;
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
       }
       .typing{
         display:block;
+        color: rgb(224, 205, 205);
+        
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 18px;
       }
 
 
@@ -91,9 +100,74 @@ margin-left: 31px;
         background-color: red;
         color: white;
         border-radius: 50%;
-        padding: 2px 6px;
+        padding: 2px 2px;
         font-size: 12px;
         min-width: 20px;
         text-align: center;
+      }
+      .settings_container{
+
+justify-content: center;
+margin-top: auto;
+display: flex;
+
+
+gap: 1rem;
+        align-items: center;
+        gap: 10px;
+        padding-bottom: 10px;
+      }
+     .btn_profile{
+      background-color: transparent;
+      border: none;
+display:flex;
+flex-direction:column;
+gap:20px;
+align-items: center;
+cursor: pointer;
+
+
+     }
+
+     .circle_profile{
+      width:30px;
+      height: 30px;
+      background-color: #fff;
+      border-radius: 50%;
+     }
+     .btn_txt{
+      color:rgb(255, 255, 255);
+      font-size: 13px;
+font-weight: 400;
+line-height: 20px;
+text-align: center;
+font-family: Poppins;
+     }
+      
+      @media screen and (min-width:768px){
+        .cont {
+          border: 1px solid black;
+          height: 100vh;
+          background-color: rgb(92, 6, 6);
+          display: flex;
+          flex-direction: column; 
+        }
+        .settings_container{
+          padding-top: 20px;
+          
+        }
+      }
+      
+      @media screen and (min-width:1158px){
+        .cont {
+          border: 1px solid black;
+          height: 100vh;
+          background-color: rgb(92, 6, 6);
+          display: flex;
+          flex-direction: column; 
+        }
+        .settings_container{
+          gap:50px;
+        }
       }
       
