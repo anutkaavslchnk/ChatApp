@@ -93,12 +93,20 @@ useEffect(()=>{
 },[chatMessagesFilter,dispatch,user._id,socket])
 
   return <div>
-    
-<img className={s.img} src={user.profileAvatar || avatar} alt="avatar" />
+    <div className={s.cont_header}>
+     
+      <img className={s.img} src={user.profileAvatar || avatar} alt="avatar" />
+      <div className={s.cont_img_txt}>
     <h2 className={s.title}>{user.fullName}</h2>
-    {isOnline ? <p className={s.title}>Online</p> : <p className={s.title}>Offline</p>}
-    {typing && <p className={s.typing}>Typing...</p>}
-    <div className={s.line}></div>
+   
+     
+      {isOnline ? <p className={s.title_online_typing}>Online</p> : <p className={s.title_online_typing}>Offline</p>}
+    
+    {typing && <p className={s.title_online_typing}>Typing...</p>}
+    </div>
+   
+    </div>
+
 
 
     <div className={`${s.chatContainer}`}>
