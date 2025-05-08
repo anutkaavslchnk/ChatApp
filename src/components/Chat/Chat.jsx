@@ -95,14 +95,21 @@ useEffect(()=>{
   return <div>
     <div className={s.cont_header}>
      
-      <img className={s.img} src={user.profileAvatar || avatar} alt="avatar" />
+                            <div className={s.avatarWrapper}>
+                                <img
+                                    className={s.img}
+                                    src={user.profileAvatar || avatar}
+                                    alt="avatar"
+                                />
+                                {isOnline && <span className={s.onlineDot}></span>}
+                            </div>
       <div className={s.cont_img_txt}>
     <h2 className={s.title}>{user.fullName}</h2>
    
      
-      {isOnline ? <p className={s.title_online_typing}>Online</p> : <p className={s.title_online_typing}>Offline</p>}
-    
-    {typing && <p className={s.title_online_typing}>Typing...</p>}
+    <p className={s.title_online_typing}>
+  {typing ? "Typing..." : isOnline ? "Online" : "Offline"}
+</p>
     </div>
    
     </div>
@@ -166,28 +173,32 @@ useEffect(()=>{
 
     
 <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+<Form className={s.form}>
+  <div className={s.inputWrapper}>
+    <Field name="txt">
+      {({ field }) => (
+        <input
+          {...field}
+          className={s.input_txt}
+          placeholder="Type the message"
+          onChange={(e) => {
+            field.onChange(e);
+            handleTyping();
+            clearTimeout(typingTimeoutRef.current);
+            typingTimeoutRef.current = setTimeout(() => {
+              socket.emit("stopTyping", {
+                to: user._id,
+                from: currentUser._id,
+              });
+            }, 1000);
+          }}
+        />
+      )}
+    </Field>
+    <button type="submit" className={s.sendBtn}>Send</button>
+  </div>
+</Form>
 
-  <Form className={s.form}>
-
-  <Field name="txt">
-          {({ field }) => (
-            <input
-              {...field}
-              className={s.input_txt}
-              placeholder="Type the message"
-              onChange={(e) => {
-                field.onChange(e);      
-                handleTyping();   
-                clearTimeout(typingTimeoutRef.current);
-                typingTimeoutRef.current = setTimeout(() => {
-                  socket.emit("stopTyping", { to: user._id, from: currentUser._id });
-                }, 1000);
-              }}
-            />
-          )}
-        </Field>
-    <button>Send</button>
-  </Form>
  
 </Formik>
 

@@ -16,13 +16,17 @@ font-size: 13px;
 font-weight: 300;
 line-height: 20px;
 }
+
 .cont_header{
   padding-top: 19px;
-  padding-left: 30px;
-  display: flex;
-  justify-content: start;
-  gap: 11px;
   padding-bottom: 19px;
+  display: flex;
+
+flex-direction: column;
+gap: 4px;
+justify-content: center;
+align-items: center;
+
 }
 .title{
   color: rgb(0, 0, 0);
@@ -36,16 +40,54 @@ line-height: 24px;
     background-color: black;
 }
 
-.input_txt{
-    padding:10px;
-    width: 800px;
+.inputWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 280px; 
+  margin: 0 auto;
 }
 
-.form{
-    position: fixed;
-    left: 35%; 
-    bottom: 0;
+.input_txt {
+  width: 100%;
+  padding: 14px  24px;
+  padding-right: auto;
+  border-radius: 50px;
+  background-color: #f1f0f0;;
+  border: none;
+  color: rgba(0, 0, 0, 0.59);
+  font-family: Apple Symbols;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24px;
+  outline: none;
 }
+
+.sendBtn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #333;
+}
+
+.form {
+  position: fixed;
+  bottom: 0;
+  
+  right: 0;
+left:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+  padding: 16px 0;
+}
+
 .msgItem{
 
     display: inline-block;
@@ -64,6 +106,22 @@ line-height: 24px;
     border-bottom-right-radius: 0;
     text-align: right;
   
+}
+.onlineDot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(136, 242, 161);
+  border-radius: 50%;
+  border: 1px solid rgb(92, 6, 6);
+}
+
+.avatarWrapper {
+  position: relative;
+  width: 50px;
+  height: 50px;
 }
 .own{
     background-color: #f1f0f0;
@@ -89,9 +147,9 @@ line-height: 24px;
   .chatContainer {
     height: 600px;
     overflow-y: auto;
-    padding-bottom: 60px; 
+    padding-bottom: 70px; 
     scroll-behavior: smooth;
-    border: 1px solid #ccc;
+    border-top: 1px solid black;
   }
   
   .blurred {
@@ -121,3 +179,37 @@ line-height: 24px;
    
     margin-right: 10px;
   }
+  @media screen and (min-width:768px){
+    .inputWrapper {
+      position: relative;
+      max-width: 621px;
+    }
+  }
+  
+  @media screen and (min-width:1158px){
+    .cont_header{
+      padding-top: 19px;
+      padding-left: 30px;
+      display: flex;
+      justify-content: start;
+      gap: 11px;
+      padding-bottom: 19px;
+    }
+    .form {
+      position: fixed;
+      bottom: 0;
+      left: 30%; 
+     
+      display: flex;
+      justify-content: center;
+      background-color: grey;
+      z-index: 1000;
+      padding: 16px 0;
+    }
+  
+    .inputWrapper {
+      max-width: 886px;
+      width: 100%;
+    }
+  }
+  
