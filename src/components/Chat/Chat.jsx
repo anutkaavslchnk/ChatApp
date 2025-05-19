@@ -8,6 +8,7 @@ import { getMessagesSelector } from "../../redux/messages/selectors";
 import { useEffect, useRef, useState } from "react";
 import { getCurrentUser } from "../../redux/auth/selectors";
 import { getOnlineUsers, getSocket, isTyping } from "../../redux/socket/selectors";
+import svg from '/public/vite.svg';
 import MessageSettings from "../MessageSettings/MessageSettings";
 const Chat = () => {
 const initialValues = {
@@ -195,7 +196,12 @@ useEffect(()=>{
         />
       )}
     </Field>
-    <button type="submit" className={s.sendBtn}>Send</button>
+    <button type="submit" className={s.sendBtn}>
+<svg width="30" height="30">
+  <use href={`${svg}#send`}></use>
+</svg>
+
+    </button>
   </div>
 </Form>
 

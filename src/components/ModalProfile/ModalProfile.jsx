@@ -63,30 +63,38 @@ useEffect(() => {
   <div className={s.content}>
 
 
-
+<h2 className={s.info}>Personal info</h2>
 
 <div className={s.cont_update}>
+
+    <div className={s.cont_photo}>
+     <p className={s.txt_details}>Photo<br/> profile</p>
 <div className={s.field_photo}>
+    <label  className={s.custom_file_upload}>
         <img  className={s.user} src={file ? file : user}></img>
-    <input className={s.hidden} type="file" onChange={handleImageUpdates}></input></div>
-<h1>{name}</h1>
+       
+      
+    <input className={s.hidden} type="file" onChange={handleImageUpdates}></input>
+    </label>
+    </div>
 
-<label>
-    Email
-<input type="text" placeholder={`${email}`} disabled/>
+ </div>
+     <div className={s.cont_photo}>
+  <p className={s.txt_details}>Full name</p>
+<h1 className={s.txt_about}>{name}</h1>
+</div>
+<label className={s.cont_photo}>
+ <p className={s.txt_details}>Email</p>
+<input  className={s.input_info} type="text" placeholder={`${email}`} disabled/>
 </label>
 
-<label>
-    Password
-    
-<input type="text" placeholder="{password}" disabled />
-</label>
+
 
 </div>
     
-    <button  onClick={handleClose} className={s.close} >×</button>
+    
   </div>
-  
+  <button  onClick={handleClose} className={s.close} >×</button>
   </div>
 )
 };

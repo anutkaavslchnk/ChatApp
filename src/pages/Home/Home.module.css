@@ -167,6 +167,19 @@ display: block;
 
   }
   @media screen and (min-width:1158px){
+.container_whole{
+    display: flex;
+    flex-direction: row;
+    gap:300px;
+    
+}
+.container_phone{
+  position: relative;;  
+}
+.svg_cont{
+    position: absolute;
+    top:10;
+}
 
 
 .header{
@@ -216,8 +229,9 @@ display: block;
 
 .cont_icons_txt{
     display:flex;
+    padding-top: 80px;
 
 }
 
 
-  }
+}

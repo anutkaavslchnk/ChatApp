@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import s from './Home.module.css';
-
+import photo from '/public/phonchil.png';
 import icons from '/public/vite.svg'
 import { useEffect, useState } from 'react';
 import {  useSelector } from 'react-redux';
@@ -34,7 +34,7 @@ const Home = () => {
   <div className={s.cont_page}>
 
 <section className={s.section_home}>
-
+<div className={s.container_whole}>
 <div className={s.icons_f}>
   
   <div>
@@ -73,6 +73,17 @@ const Home = () => {
 <use href={`${icons}#icon-clouds`} ></use>
 </svg>
 </div>
+
+
+  {/* <div className={s.container_phone}><img src={photo} alt="phone" /></div> */}
+
+  </div>
+ {/* <div className={s.svg_cont}>
+  <svg width="319px" height="674px">
+    <use href={`${icons}#phone`}></use>
+  </svg>
+  </div> */}
+
 </section>
 
 

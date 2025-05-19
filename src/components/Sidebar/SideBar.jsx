@@ -74,7 +74,7 @@ const SideBar = () => {
                                 {isUserTyping ? (
                                     <p className={s.typing}>Typing...</p>
                                 ) : (
-                                    <p className={s.lastMsg}>{lastMsg}</p>
+                                    <p className={s.lastMsg}>{lastMsg|| "No messages"}</p>
                                 )}
                             </div>
                         </li>

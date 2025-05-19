@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { isLoggedIn } from "../../redux/auth/selectors.js";
-import { logOutThunk } from "../../redux/auth/operations.js";
+
 import { Navigate } from "react-router-dom";
-import ModalProfile from "../../components/ModalProfile/ModalProfile.jsx";
+
 import { useEffect, useState } from "react";
 import SideBar from "../../components/Sidebar/SideBar.jsx";
 import MainPartPage from "../../components/MainPartPage/MainPartPage.jsx";
@@ -10,7 +10,7 @@ import s from './User.module.css';
 import { getSelectedUser } from "../../redux/users/selectors.js";
 import Chat from "../../components/Chat/Chat.jsx";
 import { clearSelectedUser } from "../../redux/users/slice.js";
-
+import svg from '/public/vite.svg';
 const User = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1158);
 
@@ -40,7 +40,9 @@ return <Navigate to='/'></Navigate>
 
       {isMobile && isSelected && (
           <button className={s.backBtn} onClick={() => dispatch(clearSelectedUser())}>
-            ←
+            <svg width='32px' height='32px'>
+              <use href={`${svg}#back`}></use>
+            </svg>
           </button>
         )}
 
