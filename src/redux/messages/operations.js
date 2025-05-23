@@ -55,3 +55,12 @@ export const updateReadStatus=createAsyncThunk("updateReadStatus", async(msgId, 
         return thunkAPI.rejectWithValue(error.message)
     }
 })
+
+export const deleteMessage=createAsyncThunk("deleteMessage", async(msgId,thunkAPI)=>{
+try {
+  await api.delete(`/api/message/${msgId}`);
+  return msgId;
+} catch (error) {
+  return thunkAPI.rejectWithValue(error)
+}
+})

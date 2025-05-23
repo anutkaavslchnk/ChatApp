@@ -170,7 +170,7 @@ display: block;
 .container_whole{
     display: flex;
     flex-direction: row;
-    gap:300px;
+    gap:10px;
     
 }
 .container_phone{

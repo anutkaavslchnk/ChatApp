@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 import { addTypingUser, removeTypingUser, setOnlineUsers, setSocket } from "./slice";
-import { addMessage, setDeliveredLocal, setReadLocal } from "../messages/slice";
+import { addMessage, deleteLocal, setDeliveredLocal, setReadLocal } from "../messages/slice";
 
 
 
@@ -60,7 +60,10 @@ dispatch(addTypingUser(from))
 
 socket.on('stopTyping', ({from})=>{
     dispatch(removeTypingUser(from))
-})
+});
+  socket.on('messageDeleted', ({ messageId }) => {
+    dispatch(deleteLocal(messageId));
+  });
 
 socket.on('messageDelivered', ({messageId})=>{
     dispatch(setDeliveredLocal(messageId))
@@ -73,5 +76,7 @@ dispatch(setReadLocal(messageId))
         
     });
     socket.connect();
-    dispatch(setSocket(socket))
+    dispatch(setSocket(socket));
+
+
 }

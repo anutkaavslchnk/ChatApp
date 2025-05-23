@@ -3,7 +3,7 @@ import { getSelectedUser } from "../../redux/users/selectors";
 import avatar from '/public/user.png'
 import s from './Chat.module.css';
 import { Field, Form, Formik } from "formik";
-import { getMessages, sendMsg, updateDeliveredStatus, updateReadStatus } from "../../redux/messages/operations";
+import { deleteMessage, getMessages, sendMsg, updateDeliveredStatus, updateReadStatus } from "../../redux/messages/operations";
 import { getMessagesSelector } from "../../redux/messages/selectors";
 import { useEffect, useRef, useState } from "react";
 import { getCurrentUser } from "../../redux/auth/selectors";
@@ -45,7 +45,20 @@ options.resetForm();
 
 }
 
+const handleDeleteMessage = (messageId) => {
+  dispatch(deleteMessage(messageId)); 
 
+
+  if (socket && user && currentUser) {
+    socket.emit('deleteMessage', {
+      messageId,
+      senderId: currentUser._id,
+      receiverId: user._id,
+    });
+  }
+
+  setOpenMsgSettings(null);
+};
 
 
 
@@ -141,7 +154,10 @@ useEffect(()=>{
 
         {isSelected && (
           <div className={s.msgSettingsWrapper}>
-            <MessageSettings onClose={() => setOpenMsgSettings(null)} />
+            <MessageSettings onClose={() => setOpenMsgSettings(null)} 
+              messageId={msg._id}
+              onDelete={() => handleDeleteMessage(msg._id)} 
+              />
           </div>
         )}
       </li>
