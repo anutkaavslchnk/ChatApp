@@ -1,58 +1,53 @@
-.img{
-    width:50px;
-    height:50px;
-    border-radius:50%;
-   
-
+.img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
-.cont_img_txt{
-  
-  
+.cont_img_txt {
 }
-.title_online_typing{
+.title_online_typing {
   color: rgb(143, 134, 134);
 
-font-size: 13px;
-font-weight: 300;
-line-height: 20px;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 20px;
 }
 
-.cont_header{
+.cont_header {
   padding-top: 19px;
   padding-bottom: 19px;
   display: flex;
 
-flex-direction: column;
-gap: 4px;
-justify-content: center;
-align-items: center;
-
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
 }
-.title{
+.title {
   color: rgb(0, 0, 0);
   font-size: 16px;
-font-weight: 600;
-line-height: 24px;
+  font-weight: 600;
+  line-height: 24px;
 }
-.line{
-    height: 0.5px;
-    width: 100%;
-    background-color: black;
+.line {
+  height: 0.5px;
+  width: 100%;
+  background-color: black;
 }
 
 .inputWrapper {
   position: relative;
   width: 100%;
-  max-width: 280px; 
+  max-width: 280px;
   margin: 0 auto;
 }
 
 .input_txt {
   width: 100%;
-  padding: 14px  24px;
+  padding: 14px 24px;
   padding-right: auto;
   border-radius: 50px;
-  background-color: #f1f0f0;;
+  background-color: #f1f0f0;
   border: none;
   color: rgba(0, 0, 0, 0.59);
   font-family: Apple Symbols;
@@ -77,35 +72,32 @@ line-height: 24px;
 .form {
   position: fixed;
   bottom: 0;
-  
+
   right: 0;
-left:0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-background-color: white;
+  background-color: white;
   z-index: 1000;
   padding: 16px 0;
 }
 
-.msgItem{
-
-    display: inline-block;
-    padding: 10px 15px;
-    border-radius: 20px;
-    font-size: 16px;
-    line-height: 1.4;
-    word-wrap: break-word;
-    max-width: 70%;
-
+.msgItem {
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 16px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  max-width: 70%;
 }
 
-.their{
-    background-color: #dcf8c6;
-    align-self: flex-end;
-    border-bottom-right-radius: 0;
-    text-align: right;
-  
+.their {
+  background-color: #dcf8c6;
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+  text-align: right;
 }
 .onlineDot {
   position: absolute;
@@ -124,95 +116,99 @@ background-color: white;
   height: 50px;
   padding-top: 20px;
 }
-.own{
-    background-color: #f1f0f0;
-    align-self: flex-start;
-    border-bottom-left-radius: 0;
-    text-align: left;
+.own {
+  background-color: #f1f0f0;
+  align-self: flex-start;
+  border-bottom-left-radius: 0;
+  text-align: left;
 }
-.msgList{
-     display: flex;
+.msgList {
+  display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 0 10px;
- 
 }
 
-
 .wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.chatContainer {
+  height: 600px;
+  overflow-y: auto;
+  padding-bottom: 70px;
+  scroll-behavior: smooth;
+  border-top: 1px solid black;
+}
+
+.blurred {
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+.focused {
+  filter: none !important;
+  position: relative;
+  z-index: 10;
+}
+
+.msgSettingsWrapper {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 20;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+.lastStatus {
+  text-align: right;
+  font-size: 0.8rem;
+  color: grey;
+
+  margin-right: 10px;
+}
+
+.time {
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 4px;
+  text-align: right;
+}
+@media screen and (min-width: 768px) {
+  .inputWrapper {
     position: relative;
+    max-width: 621px;
+  }
+}
+
+@media screen and (min-width: 1158px) {
+  .cont_header {
+    padding-top: 19px;
+    padding-left: 30px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-end; 
+    flex-direction: row;
+
+    justify-content: start;
+    gap: 11px;
+    padding-bottom: 19px;
   }
-  .chatContainer {
-    height: 600px;
-    overflow-y: auto;
-    padding-bottom: 70px; 
-    scroll-behavior: smooth;
-    border-top: 1px solid black;
-  }
-  
-  .blurred {
-    filter: blur(4px);
-    pointer-events: none;
-  }
-  
-  .focused {
-    filter: none !important;
-    position: relative;
-    z-index: 10;
-  }
-  
-  .msgSettingsWrapper {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    z-index: 20;
+  .form {
+    position: fixed;
+    bottom: 0;
+    left: 30%;
+
+    display: flex;
+    justify-content: center;
     background-color: white;
-    padding: 10px;
-    border-radius: 10px;
+    z-index: 1000;
+    padding: 16px 0;
   }
-  .lastStatus {
-    text-align: right;
-    font-size: 0.8rem;
-    color: grey;
-   
-    margin-right: 10px;
+
+  .inputWrapper {
+    max-width: 886px;
+    width: 100%;
   }
-  @media screen and (min-width:768px){
-    .inputWrapper {
-      position: relative;
-      max-width: 621px;
-    }
-  }
-  
-  @media screen and (min-width:1158px){
-    .cont_header{
-      padding-top: 19px;
-      padding-left: 30px;
-      display: flex;
-              flex-direction: row;
-     
-      justify-content: start;
-      gap: 11px;
-      padding-bottom: 19px;
-    }
-    .form {
-      position: fixed;
-      bottom: 0;
-      left: 30%; 
-     
-      display: flex;
-      justify-content: center;
-      background-color: white;
-      z-index: 1000;
-      padding: 16px 0;
-    }
-  
-    .inputWrapper {
-      max-width: 886px;
-      width: 100%;
-    }
-  }
-  
+}

@@ -64,3 +64,13 @@ try {
   return thunkAPI.rejectWithValue(error)
 }
 })
+
+
+export const updateMessage = createAsyncThunk('updateMessage', async({msgId, updatedData}, thunkAPI) => {
+  try {
+    const { data } = await api.patch(`/api/message/${msgId}`, updatedData);
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+})

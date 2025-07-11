@@ -1,0 +1,1 @@
+export const getSummaries=(state) => state.conversation.summaries;

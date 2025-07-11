@@ -4,176 +4,176 @@
   overflow-y: auto;
   background-color: rgb(92, 6, 6);
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
-.chats_title{
+.chats_title {
   color: rgb(255, 255, 255);
-margin-top: 40px;
-margin-bottom: 40px;
-font-size: 32px;
-font-weight: 400;
-line-height: 48px;
-margin-left: 31px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 48px;
+  margin-left: 31px;
 }
-    .list{
-        list-style-type: none;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap:10px;
-    }
-    .item{
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        border-bottom: 1px solid rgb(224, 205, 205);;
-        padding: 10px;
-        
-        cursor: pointer;
-    }
+.list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-bottom: 1px solid rgb(224, 205, 205);
+  padding: 10px;
 
-    .img {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        object-fit: cover;
-      }
+  cursor: pointer;
+}
 
-    .onlineDot {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 10px;
-        height: 10px;
-        background-color: rgb(136, 242, 161);
-        border-radius: 50%;
-        border: 1px solid rgb(92, 6, 6);
-      }
+.img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
-      .avatarWrapper {
-        position: relative;
-        width: 50px;
-        height: 50px;
-      }
-      .typing{
-        display:block;
-        color: rgb(224, 205, 205);
-        
-        font-size: 12px;
-        font-weight: 300;
-        line-height: 18px;
-      }
+.onlineDot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(136, 242, 161);
+  border-radius: 50%;
+  border: 1px solid rgb(92, 6, 6);
+}
 
+.avatarWrapper {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+.typing {
+  display: block;
+  color: rgb(224, 205, 205);
 
-      .infoWrapper {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-left: 10px;
-      }
-      
-      .nameRow {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      
-      .userName {
-        color: rgb(255, 255, 255);
-        font-family: Poppins;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 24px;
-      }
-      
-      .lastMsg {
-        color: rgb(224, 205, 205);
-        
-        font-size: 12px;
-        font-weight: 300;
-        line-height: 18px;
-      }
-      
-      .unreadCount {
-        background-color: red;
-        color: white;
-        border-radius: 50%;
-        padding: 2px 2px;
-        font-size: 12px;
-        min-width: 20px;
-        text-align: center;
-      }
-      .settings_container{
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+}
 
-justify-content: center;
-position:sticky;
-display: flex;
+.infoWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.nameRow {
+  align-items: center;
+}
+.cont_date_msg {
+  display: flex;
+}
+.userName {
+  color: rgb(255, 255, 255);
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.time {
+  margin-left: auto;
+  color: rgb(224, 205, 205);
+
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+}
+.lastMsg {
+  color: rgb(224, 205, 205);
+
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+}
+
+.unreadCount {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 2px;
+  font-size: 12px;
+  min-width: 20px;
+  text-align: center;
+}
+.settings_container {
+  justify-content: center;
+  position: sticky;
+  display: flex;
   left: 0;
   bottom: 0;
-  width:100%;
-background-color: rgb(92, 6, 6);
-gap: 1rem;
-        align-items: center;
-        gap: 10px;
-        padding-bottom: 10px;
-        padding-top: 20px;
-      }
-     .btn_profile{
-      background-color: transparent;
-      border: none;
-display:flex;
-flex-direction:column;
-gap:20px;
-align-items: center;
-cursor: pointer;
+  width: 100%;
+  background-color: rgb(92, 6, 6);
+  gap: 1rem;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  padding-top: 20px;
+}
+.btn_profile {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  cursor: pointer;
+}
 
+.circle_profile {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+.btn_txt {
+  color: rgb(255, 255, 255);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  font-family: Poppins;
+}
+.settings_container {
+}
 
-     }
+@media screen and (min-width: 768px) {
+  .cont {
+    border: 1px solid black;
+    height: 100vh;
+    background-color: rgb(92, 6, 6);
+    display: flex;
+    flex-direction: column;
+  }
+  .settings_container {
+    padding-top: 20px;
+  }
+}
 
-     .circle_profile{
-      width:30px;
-      height: 30px;
-      background-color: #fff;
-      border-radius: 50%;
-     }
-     .btn_txt{
-      color:rgb(255, 255, 255);
-      font-size: 13px;
-font-weight: 400;
-line-height: 20px;
-text-align: center;
-font-family: Poppins;
-     }
-     .settings_container{
-
-     }
-      
-      @media screen and (min-width:768px){
-        .cont {
-          border: 1px solid black;
-          height: 100vh;
-          background-color: rgb(92, 6, 6);
-          display: flex;
-          flex-direction: column; 
-        }
-        .settings_container{
-          padding-top: 20px;
-          
-        }
-      }
-      
-      @media screen and (min-width:1158px){
-        .cont {
-          border: 1px solid black;
-          height: 100vh;
-          background-color: rgb(92, 6, 6);
-          display: flex;
-          flex-direction: column; 
-        }
-        .settings_container{
-          gap:50px;
-        }
-      }
-      
+@media screen and (min-width: 1158px) {
+  .cont {
+    border: 1px solid black;
+    height: 100vh;
+    background-color: rgb(92, 6, 6);
+    display: flex;
+    flex-direction: column;
+  }
+  .settings_container {
+    gap: 50px;
+  }
+}

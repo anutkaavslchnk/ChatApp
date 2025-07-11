@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import {  useEffect } from "react";
 import { getMe } from "./redux/auth/operations.js";
 import { useDispatch } from "react-redux";
+import ModalProfile from "./pages/ModalProfile/ModalProfile.jsx";
 
 
 
@@ -30,7 +31,8 @@ useEffect(() => {
 <Route path="/" element={<Home/>} ></Route>
 <Route path="/login" element={<Login/>} ></Route>
 <Route path="/register" element={<Register/>} ></Route>
-<Route path="/home" element={<User/>} ></Route>
+      <Route path="/home" element={<User />} ></Route>
+      <Route path="/home/personal" element={<ModalProfile />} ></Route>
 <Route path="*" element={<NotFound/>} ></Route>
 
 

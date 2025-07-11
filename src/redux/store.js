@@ -14,6 +14,7 @@ import {
 import { usersReducer } from "./users/slice";
 import { messageReducer } from "./messages/slice";
 import { socketReducer } from "./socket/slice";
+import { conversationReducer } from "./conversation/slice";
   const persistConfig = {
     key: 'auth',
     version: 1,
@@ -28,6 +29,7 @@ export const store=configureStore({
         auth: persistReducer(persistConfig, authReducer),
         users: persistReducer(persistConfig, usersReducer),
         messages: persistReducer(persistConfig, messageReducer),
+        conversation:persistReducer(persistConfig,conversationReducer),
         socket: socketReducer,
     },
     middleware: (getDefaultMiddleware) =>

@@ -1,15 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import s from './MessageSettings.module.css';
-import { useDispatch } from "react-redux";
-import { deleteMessage } from "../../redux/messages/operations";
-const MessageSettings = ({onClose,onDelete}) => {
 
+const MessageSettings = ({ onClose, onDelete, onEdit, originalText }) => {
+  const [editMode, setEditMode] = useState(false);
+  const [text, setText] = useState(originalText);
 
-  return <div className={s.container}>
-    <button onClick={onClose}>Close</button>
-    <button onClick={onDelete}>Delete</button>
-    <button>Edit</button>
-  </div>;
+  const handleSave = () => {
+    onEdit(text);
+    setEditMode(false);
+  };
+
+  
+  return (
+    <div className={s.container}>
+      <button onClick={onClose}>Close</button>
+      <button onClick={onDelete}>Delete</button>
+
+      {!editMode && (
+        <button onClick={() => setEditMode(true)}>Edit</button>
+      )}
+
+      {editMode && (
+        <>
+          <input
+            type="text"
+            value={text}
+            onChange={e => setText(e.target.value)}
+            className={s.editInput}
+          />
+          <button onClick={handleSave}>Save</button>
+          <button onClick={() => setEditMode(false)}>Cancel</button>
+        </>
+      )}
+    </div>
+  );
 };
 
 export default MessageSettings;
