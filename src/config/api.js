@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://chatapp-bd.onrender.com/",
+  baseURL: "https://chatapp-bd.onrender.com",
   withCredentials: true,
 });
 
