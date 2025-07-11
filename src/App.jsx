@@ -5,40 +5,37 @@ import Register from "./pages/Register/Register.jsx";
 import NotFound from "./components/NotFound/NotFound.jsx";
 import User from "./pages/User/User.jsx";
 import { Toaster } from "react-hot-toast";
-import {  useEffect } from "react";
+import { useEffect } from "react";
 import { getMe } from "./redux/auth/operations.js";
 import { useDispatch } from "react-redux";
 import ModalProfile from "./pages/ModalProfile/ModalProfile.jsx";
 
-
-
 const App = () => {
-const dispatch=useDispatch();
+  const dispatch = useDispatch();
   useEffect(() => {
-    const token = localStorage.getItem('persist:auth'); // Get token from localStorage
+    const token = localStorage.getItem("persist:auth"); // Get token from localStorage
     if (token) {
-        dispatch(getMe()); // Dispatch getMe only if token exists
+      dispatch(getMe()); // Dispatch getMe only if token exists
     }
-}, [dispatch]);
-useEffect(() => {
-  if (Notification.permission !== "granted") {
-      Notification.requestPermission();
-  }
-}, []);
-  return <div>
-
-    <Routes>
-<Route path="/" element={<Home/>} ></Route>
-<Route path="/login" element={<Login/>} ></Route>
-<Route path="/register" element={<Register/>} ></Route>
-      <Route path="/home" element={<User />} ></Route>
-      <Route path="/home/personal" element={<ModalProfile />} ></Route>
-<Route path="*" element={<NotFound/>} ></Route>
-
-
-    </Routes>
-    <Toaster></Toaster>
-    </div>;
+  }, [dispatch]);
+  // useEffect(() => {
+  //   if (Notification.permission !== "granted") {
+  //       Notification.requestPermission();
+  //   }
+  // }, []);
+  return (
+    <div>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/home" element={<User />}></Route>
+        <Route path="/home/personal" element={<ModalProfile />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
+      </Routes>
+      <Toaster></Toaster>
+    </div>
+  );
 };
 
 export default App;

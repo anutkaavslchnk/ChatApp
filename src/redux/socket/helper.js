@@ -48,25 +48,25 @@ export const connectedSocket = (dispatch, token, userId) => {
     dispatch(addMessage(msgWithTime));
     dispatch(updateSummary({ ...msgWithTime, currentUserId: userId }));
 
-    const notificationSound = new Audio(
-      "/public/message-notification-190034 (1).mp3"
-    );
-    if (msg.senderId !== userId) {
-      notificationSound
-        .play()
-        .catch((err) => console.error("Audio playback error:", err));
-    }
+    // const notificationSound = new Audio(
+    //   "/public/message-notification-190034 (1).mp3"
+    // );
+    // if (msg.senderId !== userId) {
+    //   notificationSound
+    //     .play()
+    //     .catch((err) => console.error("Audio playback error:", err));
+    // }
 
-    if (
-      typeof Notification !== "undefined" &&
-      msg.senderId !== userId &&
-      Notification.permission === "granted"
-    ) {
-      new Notification("New message", {
-        body: `${msg.senderName || "User"}: ${msg.txt}`,
-        icon: msg.senderAvatar || "/user.png",
-      });
-    }
+    // if (
+    //   typeof Notification !== "undefined" &&
+    //   msg.senderId !== userId &&
+    //   Notification.permission === "granted"
+    // ) {
+    //   new Notification("New message", {
+    //     body: `${msg.senderName || "User"}: ${msg.txt}`,
+    //     icon: msg.senderAvatar || "/user.png",
+    //   });
+    // }
   });
 
   // delivered/read logic
