@@ -51,8 +51,10 @@ export const logOutThunk = createAsyncThunk("logout", async (_, thunkAPI) => {
 });
 
 export const getMe = createAsyncThunk("getMe", async (_, thunkAPI) => {
-  const savedToken = thunkAPI.getState().auth.accessToken;
-
+  let savedToken = thunkAPI.getState().auth.accessToken;
+  if (typeof savedToken === "string") {
+    savedToken = savedToken.replace(/^"|"$/g, "");
+  }
   if (savedToken === null) {
     return thunkAPI.rejectWithValue("Token is not exist!");
   }
