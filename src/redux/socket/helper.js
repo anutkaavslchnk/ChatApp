@@ -57,7 +57,11 @@ export const connectedSocket = (dispatch, token, userId) => {
         .catch((err) => console.error("Audio playback error:", err));
     }
 
-    if (msg.senderId !== userId && Notification.permission === "granted") {
+    if (
+      typeof Notification !== "undefined" &&
+      msg.senderId !== userId &&
+      Notification.permission === "granted"
+    ) {
       new Notification("New message", {
         body: `${msg.senderName || "User"}: ${msg.txt}`,
         icon: msg.senderAvatar || "/user.png",
