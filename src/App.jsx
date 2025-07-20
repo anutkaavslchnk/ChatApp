@@ -7,22 +7,30 @@ import User from "./pages/User/User.jsx";
 import { Toaster } from "react-hot-toast";
 import { useEffect } from "react";
 import { getMe } from "./redux/auth/operations.js";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ModalProfile from "./pages/ModalProfile/ModalProfile.jsx";
+import { token } from "./redux/auth/selectors.js";
 
 const App = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    const token = localStorage.getItem("persist:auth"); // Get token from localStorage
-    if (token) {
-      dispatch(getMe()); // Dispatch getMe only if token exists
-    }
-  }, [dispatch]);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   const token = localStorage.getItem("persist:auth"); // Get token from localStorage
+  //   if (token) {
+  //     dispatch(getMe()); // Dispatch getMe only if token exists
+  //   }
+  // }, [dispatch]);
   // useEffect(() => {
   //   if (Notification.permission !== "granted") {
   //       Notification.requestPermission();
   //   }
   // }, []);
+  const dispatch = useDispatch();
+  const accessToken = useSelector(token);
+  useEffect(() => {
+    if (accessToken) {
+      dispatch(getMe());
+    }
+  }, [accessToken, dispatch]);
   return (
     <div>
       <Routes>
