@@ -199,11 +199,7 @@ const Chat = () => {
 
             return (
               <div className={s.lastStatus}>
-                {lastOwnMsg.isRead
-                  ? "Read"
-                  : lastOwnMsg.isDelivered
-                  ? "Delivered"
-                  : "Loading"}
+                {lastOwnMsg.isRead ? "Read" : "Delivered"}
               </div>
             );
           })()}
