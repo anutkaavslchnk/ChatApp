@@ -31,11 +31,6 @@ const SideBar = () => {
 
   const getSummary = useSelector(getSummaries);
 
-  const formatTime = (time) => {
-    const date = new Date(time);
-    return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-  };
-
   useEffect(() => {
     if (currentUser?._id) {
       dispatch(getConversationSummariesList(currentUser._id));
@@ -49,53 +44,58 @@ const SideBar = () => {
   if (!Array.isArray(users) || users.length === 0) {
     return <p>Loading users...</p>;
   }
-
+  console.log("Summaries:", getSummary);
   return (
     <div className={s.cont}>
       <p className={s.chats_title}>Chats</p>
       <ul className={s.list}>
-        {users.map((user) => {
-          const isOnline = onlineUsers.includes(user._id);
-          const isUserTyping = typingUsers.includes(user._id);
-          const summary = getSummary[user._id];
-          const lastText = summary?.lastMessage?.txt || "No messages";
-          const unread = summary?.unreadCount || 0;
-          return (
-            <li
-              className={s.item}
-              key={user._id}
-              onClick={() => {
-                dispatch(selectedUser(user));
-                dispatch(getMessages());
-              }}
-            >
-              <div className={s.avatarWrapper}>
-                <img
-                  className={s.img}
-                  src={user.profileAvatar || avatar}
-                  alt="avatar"
-                />
-                {isOnline && <span className={s.onlineDot}></span>}
-              </div>
+        {[...users]
+          .sort((a, b) => {
+            const timeA = getSummary[a._id]?.lastMessage?.time
+              ? new Date(getSummary[a._id].lastMessage.time).getTime()
+              : 0;
+            const timeB = getSummary[b._id]?.lastMessage?.time
+              ? new Date(getSummary[b._id].lastMessage.time).getTime()
+              : 0;
+            return timeB - timeA; // descending order
+          })
+          .map((user) => {
+            const isOnline = onlineUsers.includes(user._id);
+            const isUserTyping = typingUsers.includes(user._id);
+            const summary = getSummary[user._id];
+            const lastText = summary?.lastMessage?.txt || "No messages";
+            const unread = summary?.unreadCount || 0;
+            return (
+              <li
+                className={s.item}
+                key={user._id}
+                onClick={() => {
+                  dispatch(selectedUser(user));
+                  dispatch(getMessages());
+                }}
+              >
+                <div className={s.avatarWrapper}>
+                  <img
+                    className={s.img}
+                    src={user.profileAvatar || avatar}
+                    alt="avatar"
+                  />
+                  {isOnline && <span className={s.onlineDot}></span>}
+                </div>
 
-              <div className={s.infoWrapper}>
-                <div className={s.nameRow}>
-                  <p className={s.userName}>{user.fullName}</p>
-                  <div className={s.cont_date_msg}>
-                    <p className={s.lastMsg}>
-                      {isUserTyping ? "Typing..." : lastText}
-                    </p>
-                    {summary?.lastMessage?.time && (
-                      <p className={s.time}>
-                        {formatTime(summary.lastMessage.time)}
+                <div className={s.infoWrapper}>
+                  <div className={s.nameRow}>
+                    <p className={s.userName}>{user.fullName}</p>
+                    <div className={s.cont_date_msg}>
+                      <p className={s.lastMsg}>
+                        {isUserTyping ? "Typing..." : lastText}
                       </p>
-                    )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </li>
-          );
-        })}
+              </li>
+            );
+          })}
       </ul>
       <div className={s.settings_container}>
         <button className={s.btn_profile} onClick={handleOpenModal}>
