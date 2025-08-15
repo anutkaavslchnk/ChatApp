@@ -81,3 +81,41 @@ export const updateProfileThunk = createAsyncThunk(
     }
   }
 );
+// in operations.js
+export const googleLoginThunk = createAsyncThunk(
+  "auth/googleLogin",
+  async (token, thunkAPI) => {
+    try {
+      // send id_token to backend
+      const { data } = await api.post("/api/auth/google", {
+        credential: token,
+      });
+      setToken(data.accessToken);
+      toast.success("You logged in with Google!");
+      connectedSocket(thunkAPI.dispatch, data.accessToken, data.user._id);
+      return data;
+    } catch (error) {
+      toast.error("Google login failed!");
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const googleRegisterThunk = createAsyncThunk(
+  "auth/googleRegister",
+  async (token, thunkAPI) => {
+    try {
+      // send id_token to backend
+      const { data } = await api.post("/api/auth/google/signup", {
+        credential: token,
+      });
+      setToken(data.accessToken);
+      toast.success("Signed up with Google successfully!");
+      connectedSocket(thunkAPI.dispatch, data.accessToken, data.user._id);
+      return data;
+    } catch (error) {
+      toast.error("Google signup failed!");
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

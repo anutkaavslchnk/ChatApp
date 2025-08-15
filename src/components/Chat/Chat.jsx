@@ -72,7 +72,10 @@ const Chat = () => {
   };
 
   const handleChangeMessage = (messageId, newText) => {
-    dispatch(updateMessage({ msgId: messageId, payload: { txt: newText } }));
+    dispatch(
+      updateMessage({ msgId: messageId, updatedData: { txt: newText } })
+    );
+
     console.log("Updating msg", messageId, "with text:", newText);
     if (socket && user && currentUser) {
       socket.emit("messageUpdated", {
