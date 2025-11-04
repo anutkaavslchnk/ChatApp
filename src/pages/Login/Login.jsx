@@ -79,11 +79,17 @@ const Login = () => {
               </button>
             </Form>
           </Formik>
-          <button className={s.google_auth} onClick={handleGoogleLogin}>
-            Sign in with Google
-            <svg className={s.svg} width="25" height="25">
-              <use href={`${svg}#google`}></use>
-            </svg>
+          <button
+            className={s.google_auth}
+            type="button"
+            onClick={handleGoogleLogin}
+          >
+            <span>Sign in with Google</span>
+            <span>
+              <svg className={s.svg} width="25" height="25">
+                <use href={`${svg}#google`}></use>
+              </svg>
+            </span>
           </button>
 
           <p className={s.txt_trans}>

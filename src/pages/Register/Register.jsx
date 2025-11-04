@@ -94,11 +94,17 @@ const Register = () => {
               </button>
             </Form>
           </Formik>
-          <button className={s.google_auth} onClick={handleGoogleRegister}>
-            Sign up with Google
-            <svg className={s.svg} width="25" height="25">
-              <use href={`${svg}#google`}></use>
-            </svg>
+          <button
+            className={s.google_auth}
+            type="button"
+            onClick={handleGoogleRegister}
+          >
+            <span>Sign up with Google</span>
+            <span>
+              <svg className={s.svg} width="25" height="25">
+                <use href={`${svg}#google`}></use>
+              </svg>
+            </span>
           </button>
 
           <p className={s.txt_trans}>
