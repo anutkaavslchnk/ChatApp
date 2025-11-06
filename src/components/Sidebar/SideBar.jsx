@@ -22,6 +22,9 @@ const SideBar = () => {
   const handleOpenModal = () => {
     nav("/home/personal");
   };
+  const openSettings = () => {
+    nav("/home/settings");
+  };
   const dispatch = useDispatch();
 
   const users = useSelector(getUsersSelector);
@@ -110,7 +113,7 @@ const SideBar = () => {
           </svg>
           <p className={s.btn_txt}>Log out</p>
         </button>
-        <button className={s.btn_profile}>
+        <button className={s.btn_profile} onClick={openSettings}>
           <svg width="30px" height="30px">
             <use href={`${icons}#settings`}></use>
           </svg>

@@ -10,6 +10,7 @@ import { getMe } from "./redux/auth/operations.js";
 import { useDispatch, useSelector } from "react-redux";
 import ModalProfile from "./pages/ModalProfile/ModalProfile.jsx";
 import { token } from "./redux/auth/selectors.js";
+import Settings from "./pages/Settings/Settings.jsx";
 
 const App = () => {
   // const dispatch = useDispatch();
@@ -39,6 +40,7 @@ const App = () => {
         <Route path="/register" element={<Register />}></Route>
         <Route path="/home" element={<User />}></Route>
         <Route path="/home/personal" element={<ModalProfile />}></Route>
+        <Route path="/home/settings" element={<Settings />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <Toaster></Toaster>
