@@ -44,7 +44,6 @@ const SideBar = () => {
   if (!Array.isArray(users) || users.length === 0) {
     return <p>Loading users...</p>;
   }
-  console.log("Summaries:", getSummary);
   return (
     <div className={s.cont}>
       <p className={s.chats_title}>Chats</p>

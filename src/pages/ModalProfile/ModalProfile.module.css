@@ -90,6 +90,7 @@
 .input_info {
   background-color: transparent;
   border: none;
+  width: 100%;
 }
 .input_info::placeholder {
   color: rgb(255, 255, 255);

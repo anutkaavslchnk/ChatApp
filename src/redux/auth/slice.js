@@ -49,11 +49,9 @@ const slice = createSlice({
       })
 
       .addCase(updateProfileThunk.fulfilled, (state, action) => {
-        console.log("Redux Update Payload:", action.payload);
         if (action.payload?.user?.profileAvatar) {
           state.user.profileAvatar = action.payload.user.profileAvatar;
         }
-        console.log("Redux After Update:", state.user.profileAvatar);
         state.isLoggedIn = true;
       })
 

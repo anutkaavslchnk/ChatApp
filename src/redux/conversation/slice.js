@@ -41,7 +41,6 @@ const slice = createSlice({
             lastMessage: item.lastMessage,
           };
         });
-        console.log("Payload in fulfilled:", action.payload);
         state.summaries = map;
       })
       .addCase(getConversationSummariesList.rejected, (state, action) => {

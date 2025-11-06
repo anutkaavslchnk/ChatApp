@@ -30,7 +30,7 @@ export const connectedSocket = (dispatch, token, userId) => {
   });
 
   socket.on("connect", () => {
-    console.log("Connected to socket server", socket.id);
+    console.log("Connected to socket server");
   });
 
   //online users logic

@@ -76,7 +76,6 @@ const Chat = () => {
       updateMessage({ msgId: messageId, updatedData: { txt: newText } })
     );
 
-    console.log("Updating msg", messageId, "with text:", newText);
     if (socket && user && currentUser) {
       socket.emit("messageUpdated", {
         messageId,
